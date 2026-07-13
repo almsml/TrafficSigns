@@ -1,0 +1,23 @@
+train: D:/比赛模型/traffic signs/data/weather_aug/images
+val: D:/比赛模型/traffic signs/data/val/images
+nc: 3
+names:
+  - Warning Signs
+  - Informative Signs
+  - Prohibitory Signs
+# 数据增强 (在训练配置中添加)
+augment:
+  - mosaic: 1.0         # 保持高概率
+  - mixup: 0.2          # 适度混合
+  - hsv_h: 0.015        # 色相扰动
+  - hsv_s: 0.7          # 饱和度扰动 (↑增强)
+  - hsv_v: 0.4          # 亮度扰动 (↑增强)
+  - degrees: 15.0       # 旋转角度 (↑增强)
+  - translate: 0.2      # 平移 (↑增强)
+  - scale: 0.5          # 缩放 (↑增强)
+  - shear: 5.0          # 剪切 (↑增强)
+  - perspective: 0.001  # 透视变换
+  - flipud: 0.5         # 上下翻转
+  - fliplr: 0.5         # 左右翻转
+  - blur: [0.2, 1.8]    # 模糊增强 (↑增强范围)
+  - noise: [0.01, 0.05] # 添加随机噪声
